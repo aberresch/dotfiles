@@ -1,7 +1,7 @@
-cd..='cd ..'
-cd...='cd ../..'
-cd....='cd ../../..'
-cd.....='cd ../../../..'
+alias cd..='cd ..'
+alias cd...='cd ../..'
+alias cd....='cd ../../..'
+alias cd.....='cd ../../../..'
 
 alias -- +=popd
 alias -- -=pushd
