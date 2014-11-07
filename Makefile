@@ -24,3 +24,6 @@ CWD=$(shell pwd)
 ../.oh-my-zsh:
 	git clone https://github.com/lukaspustina/oh-my-zsh.git $(HOME)/.oh-my-zsh
 
+update:
+	git pull --rebase
+

@@ -1,5 +1,8 @@
 ZSH=$HOME/.oh-my-zsh
 
+HISTSIZE=1000
+SAVEHIST=1000
+
 DL_ZSH_RC_LOCAL="$HOME/.zshrc.local"
 [ -f "$DL_ZSH_RC_LOCAL" ] && source "$DL_ZSH_RC_LOCAL"
 
@@ -25,4 +28,15 @@ function onHosts() {
 	shift
 	ansible "$hostGroup" -m shell -a "$@"
 }
+
+# Edit commands in VI via ESC + v
+bindkey -M vicmd v edit-command-line
+
+# Enable EMACS key bindings since we use VI mode
+bindkey "^R" history-incremental-search-backward
+bindkey "^A" beginning-of-line
+bindkey "^E" end-of-line
+bindkey "^D" delete-char-or-list
+bindkey "^K" kill-line
+bindkey "^H" backward-delete-char
 
