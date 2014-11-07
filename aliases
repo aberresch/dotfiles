@@ -1,0 +1,23 @@
+cd..='cd ..'
+cd...='cd ../..'
+cd....='cd ../../..'
+cd.....='cd ../../../..'
+
+alias -- +=popd
+alias -- -=pushd
+
+alias col1="awk '{print \$1}' "
+alias col2="awk '{print \$2}' "
+alias col3="awk '{print \$3}' "
+alias col4="awk '{print \$4}' "
+alias col5="awk '{print \$5}' "
+alias col6="awk '{print \$6}' "
+alias col7="awk '{print \$7}' "
+
+alias f='ps aux | grep -v grep | grep -i'
+alias grep='grep --color'
+
+alias la='ls -al'
+alias ll='ls -lh'
+alias ls='ls -G'
+

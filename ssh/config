@@ -1,0 +1,37 @@
+
+# Virtual Infrastructure
+
+Host vi-admin01
+	HostName admin-v-infrastructure01.v.clusterb.centerdevice.local
+Host vi-admin02
+	HostName admin-v-infrastructure02.v.clusterb.centerdevice.local
+
+# Virtual CenterDevice
+
+Host vcd-admin
+	HostName admin-v-centerdevice.v.clusterb.centerdevice.local
+
+Host vcd-loadbalancer
+	ProxyCommand ssh -q vcd-admin nc -q0 loadbalancer 22
+Host vcd-loadbalancer01
+	ProxyCommand ssh -q vcd-admin nc -q0 loadbalancer01 22
+Host vcd-loadbalancer02
+	ProxyCommand ssh -q vcd-admin nc -q0 loadbalancer02 22
+
+Host vcd-appdyn
+	ProxyCommand ssh -q vcd-admin nc -q0 appdyn 22
+
+Host vcd-mail01
+	ProxyCommand ssh -q vcd-admin nc -q0 mail01 22
+Host vcd-mail02
+	ProxyCommand ssh -q vcd-admin nc -q0 mail02 22
+
+Host vcd-node01
+	ProxyCommand ssh -q vcd-admin nc -q0 node01 22
+Host vcd-node02
+	ProxyCommand ssh -q vcd-admin nc -q0 node02 22
+Host vcd-node03
+	ProxyCommand ssh -q vcd-admin nc -q0 node03 22
+Host vcd-node04
+	ProxyCommand ssh -q vcd-admin nc -q0 node04 22
+
