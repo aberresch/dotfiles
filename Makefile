@@ -1,7 +1,7 @@
 
-all: ../.ansible.cfg ../.aliases ../.screenrc ../.ssh/config ../.zshrc ../.oh-my-zsh
+all: ../.ansible.cfg ../.aliases ../.screenrc ../.zshrc ../.oh-my-zsh
 
-clean: ../.ansible.cfg ../.aliases ../.screenrc ../.ssh/config ../.zshrc
+clean: ../.ansible.cfg ../.aliases ../.screenrc ../.zshrc
 	rm $<
 
 CWD=$(shell pwd)
@@ -13,9 +13,6 @@ CWD=$(shell pwd)
 	-cd $(HOME) && ln -fs $(CWD)/$< .$<
 
 ../.screenrc: screenrc
-	-cd $(HOME) && ln -fs $(CWD)/$< .$<
-
-../.ssh/config: ssh/config
 	-cd $(HOME) && ln -fs $(CWD)/$< .$<
 
 ../.zshrc: zshrc
