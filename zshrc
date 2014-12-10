@@ -29,6 +29,30 @@ function onHosts() {
 	ansible "$hostGroup" -m shell -a "$@"
 }
 
+function docInfo() {
+	[[ -x mongo ]] || return 1;
+        local projection="{ _id: 0,
+                            filename: 1,
+                            mimetype: 1,
+                            size: 1,
+                            version: 1,
+                            version_date: 1,
+                            uploader: 1,
+                            owner: 1
+                          }"
+        if [[ "${1}" = "-v" ]]; then
+                projection="{}"
+                shift;
+        fi
+        local docId="${1}"
+        if [[ -z "$docId" ]]; then
+                echo "Usage: docInfo [-v] <documentId>"
+                return 1
+        fi
+        echo "db.metadata.findOne({\"id\":\"$docId\"}, $projection )" | mongo --quiet centerdevice-metadata
+}
+
+
 # Edit commands in VI via ESC + v
 bindkey -M vicmd v edit-command-line
 
