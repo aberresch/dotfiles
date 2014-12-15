@@ -29,7 +29,7 @@ function onHosts() {
 	ansible "$hostGroup" -m shell -a "$@"
 }
 
-function userInfo() {
+function cd_userInfo() {
         [[ -x /usr/bin/mongo ]] || return 2;
         local projection="{ _id: 0,
                             email: 1,
@@ -54,7 +54,7 @@ function userInfo() {
 
 }
 
-function docInfo() {
+function cd_docInfo() {
 	[[ -x mongo ]] || return 1;
         local projection="{ _id: 0,
                             filename: 1,
