@@ -32,6 +32,7 @@ function onHosts() {
 function cd_userInfo() {
         [[ -x /usr/bin/mongo ]] || return 2;
         local projection="{ _id: 0,
+                            id: 1,
                             email: 1,
                             first_name: 1,
                             last_name: 1,
@@ -39,7 +40,8 @@ function cd_userInfo() {
                             role: 1,
                             status: 1,
                             tenant: 1,
-                            last_login: 1
+                            last_login: 1,
+                            'upload_settings.email_upload_alias': 1
                           }"
         if [[ "${1}" = "-v" ]]; then
                 projection="{}"
@@ -47,10 +49,10 @@ function cd_userInfo() {
         fi
         local userId="${1}"
         if [[ -z "$userId" ]]; then
-                echo "Usage: userInfo [-v] <userId>"
+                echo "Usage: userInfo [-v] <userId|uploadId>"
                 return 1
         fi
-        echo "db.user.findOne({\"id\":\"$userId\"}, $projection )" | mongo --quiet centerdevice-security
+        echo "db.user.findOne({ \$or:[ {\"id\":\"$userId\"}, {\"upload_settings.email_upload_alias\":\"$userId\"}]}, $projection )" | mongo --quiet centerdevice-security
 
 }
 
