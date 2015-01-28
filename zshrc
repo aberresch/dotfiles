@@ -13,11 +13,13 @@ DL_ZSH_ALIASES_LOCAL="$HOME/.aliases.local"
 [ -f "$DL_ZSH_ALIASES_LOCAL" ] && source "$DL_ZSH_ALIASES_LOCAL"
 
 PROMPT_PREFIX=""
-# Check for Cluster
+# Check for Environment
 ifconfig | grep 10.102 > /dev/null
 [[ $? == 0 ]] && PROMPT_PREFIX="B|"
 ifconfig | grep 10.103 > /dev/null
 [[ $? == 0 ]] && PROMPT_PREFIX="C|"
+ifconfig | grep 192.168.205 > /dev/null
+[[ $? == 0 ]] && PROMPT_PREFIX="vCD|"
 
 
 ZSH_THEME="daniel_lukas"
