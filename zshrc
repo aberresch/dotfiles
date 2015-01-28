@@ -14,7 +14,7 @@ DL_ZSH_ALIASES_LOCAL="$HOME/.aliases.local"
 
 ZSH_THEME="daniel_lukas"
 
-plugins=(compleat vi-mode)
+plugins=(compleat vi-mode screen)
 
 source $ZSH/oh-my-zsh.sh
 
