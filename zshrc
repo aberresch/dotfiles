@@ -12,6 +12,14 @@ DL_ZSH_ALIASES="$HOME/.aliases"
 DL_ZSH_ALIASES_LOCAL="$HOME/.aliases.local"
 [ -f "$DL_ZSH_ALIASES_LOCAL" ] && source "$DL_ZSH_ALIASES_LOCAL"
 
+PROMPT_PREFIX=""
+# Check for Cluster
+ifconfig | grep 10.102 > /dev/null
+[[ $? == 0 ]] && PROMPT_PREFIX="B|"
+ifconfig | grep 10.103 > /dev/null
+[[ $? == 0 ]] && PROMPT_PREFIX="C|"
+
+
 ZSH_THEME="daniel_lukas"
 
 plugins=(compleat vi-mode screen)
