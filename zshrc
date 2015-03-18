@@ -102,9 +102,9 @@ bindkey "^K" kill-line
 bindkey "^H" backward-delete-char
 
 # Screen Check
-if [[ "x${TERM}x" == "xscreenx" ]]; then 
+if [[ "x${TERM}x" == "xscreenx" ]]; then
 	echo "You're running inside a screen."
 else
-	screen -ls | head -n -2
+	screen -ls | head -n -2 2>/dev/null
 fi
 
