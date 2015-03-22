@@ -47,10 +47,15 @@ nnoremap <leader><space> :noh<cr>
 nnoremap <tab> %
 vnoremap <tab> %
 
-" remap / for easymotion search
+" map / for easymotion search
 map  <leader>/ <Plug>(easymotion-sn)
 omap <leader>/ <Plug>(easymotion-tn)
 
+" map toggle for paste mode
+map  <leader>p :set invpaste<CR>:set paste?<CR>
+omap <leader>p :set invpaste<CR>:set paste?<CR>
+
+nnoremap <leader>A :Ack<space>
 nnoremap <leader>U :GundoToggle<CR>
 
 " change Vim's interpretation of regex to 'common' mode
