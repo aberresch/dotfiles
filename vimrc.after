@@ -48,8 +48,8 @@ nnoremap <tab> %
 vnoremap <tab> %
 
 " remap / for easymotion search
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
+map  <leader>/ <Plug>(easymotion-sn)
+omap <leader>/ <Plug>(easymotion-tn)
 
 nnoremap <leader>U :GundoToggle<CR>
 
