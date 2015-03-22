@@ -8,7 +8,6 @@ GITREPOS="\
   https://github.com/gavinbeatty/dragvisuals.vim.git,${HOME}/.janus/dragvisuals.vim.git \
   https://github.com/chase/vim-ansible-yaml.git,${HOME}/.janus/vim-ansible-yaml.git \
   https://github.com/altercation/vim-colors-solarized.git,${HOME}/.janus/vim-colors-solarized.git \
-  https://github.com/tpope/vim-fugitive.git,${HOME}/.janus/vim-fugitive.git \
   https://github.com/atweiden/vim-vmath.git,${HOME}/.janus/vim-vmath.git \
   https://github.com/tpope/vim-surround.git,${HOME}/.janus/vim-surround.git \
   https://github.com/tpope/vim-repeat.git,${HOME}/.janus/vim-repeat.git \
