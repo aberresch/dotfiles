@@ -47,6 +47,8 @@ nnoremap <leader><space> :noh<cr>
 nnoremap <tab> %
 vnoremap <tab> %
 
+nnoremap <leader>U :GundoToggle<CR>
+
 " change Vim's interpretation of regex to 'common' mode
 nnoremap / /\v
 vnoremap / /\v
