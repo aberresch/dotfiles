@@ -16,6 +16,8 @@ alias col7="awk '{print \$7}' "
 
 alias f='ps aux | grep -v grep | grep -i'
 alias grep='grep --color'
+alias g='grep'
+alias p='ping -c 5 www.heise.de'
 
 alias la='ls -al'
 alias ll='ls -lh'

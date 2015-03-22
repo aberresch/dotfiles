@@ -1,26 +1,38 @@
-ZSH=$HOME/.oh-my-zsh
+EDITOR=vim
+DISABLE_AUTO_UPDATE=true
+DL_ZSH_GIT_PROMPT=true
 
 HISTSIZE=1000
 SAVEHIST=1000
 
-DL_ZSH_RC_LOCAL="$HOME/.zshrc.local"
-[ -f "$DL_ZSH_RC_LOCAL" ] && source "$DL_ZSH_RC_LOCAL"
+#----
+
+ZSH=$HOME/.oh-my-zsh
 
 DL_ZSH_ALIASES="$HOME/.aliases"
 [ -f "$DL_ZSH_ALIASES" ] && source "$DL_ZSH_ALIASES"
-
 DL_ZSH_ALIASES_LOCAL="$HOME/.aliases.local"
 [ -f "$DL_ZSH_ALIASES_LOCAL" ] && source "$DL_ZSH_ALIASES_LOCAL"
+
+for f in $HOME/.dl_*.zsh; do
+  source $f
+done
 
 PROMPT_PREFIX=""
 # Check for Environment
 ifconfig | grep 10.102 > /dev/null
-[[ $? == 0 ]] && PROMPT_PREFIX="B|"
+[[ $? == 0 ]] && DL_ENV="CLUSTER_B"
 ifconfig | grep 10.103 > /dev/null
-[[ $? == 0 ]] && PROMPT_PREFIX="C|"
+[[ $? == 0 ]] && DL_ENV="CLUSTER_C"
 ifconfig | grep 192.168.205 > /dev/null
-[[ $? == 0 ]] && PROMPT_PREFIX="vCD|"
+[[ $? == 0 ]] && DL_ENV="vCD"
 
+case $DL_ENV in
+  CLUSTER_B|CLUSTER_C|vCD)
+    PROMPT_PREFIX="$DL_ENV|"
+    DL_ZSH_GIT_PROMPT=false
+    ;;
+esac
 
 ZSH_THEME="daniel_lukas"
 
@@ -39,57 +51,6 @@ function onHosts() {
 	ansible "$hostGroup" -m shell -a "$@"
 }
 
-function cd_userInfo() {
-        [[ -x /usr/bin/mongo ]] || return 2;
-        local projection="{ _id: 0,
-                            id: 1,
-                            email: 1,
-                            first_name: 1,
-                            last_name: 1,
-                            distributor: 1,
-                            role: 1,
-                            status: 1,
-                            tenant: 1,
-                            last_login: 1,
-                            'upload_settings.email_upload_alias': 1
-                          }"
-        if [[ "${1}" = "-v" ]]; then
-                projection="{}"
-                shift;
-        fi
-        local userId="${1}"
-        if [[ -z "$userId" ]]; then
-                echo "Usage: userInfo [-v] <userId|uploadId>"
-                return 1
-        fi
-        echo "db.user.findOne({ \$or:[ {\"id\":\"$userId\"}, {\"upload_settings.email_upload_alias\":\"$userId\"}]}, $projection )" | mongo --quiet centerdevice-security
-
-}
-
-function cd_docInfo() {
-	[[ -x mongo ]] || return 1;
-        local projection="{ _id: 0,
-                            filename: 1,
-                            mimetype: 1,
-                            size: 1,
-                            version: 1,
-                            version_date: 1,
-                            uploader: 1,
-                            owner: 1
-                          }"
-        if [[ "${1}" = "-v" ]]; then
-                projection="{}"
-                shift;
-        fi
-        local docId="${1}"
-        if [[ -z "$docId" ]]; then
-                echo "Usage: docInfo [-v] <documentId>"
-                return 1
-        fi
-        echo "db.metadata.findOne({\"id\":\"$docId\"}, $projection )" | mongo --quiet centerdevice-metadata
-}
-
-
 # Edit commands in VI via ESC + v
 bindkey -M vicmd v edit-command-line
 
@@ -107,4 +68,7 @@ if [[ "x${TERM}x" == "xscreenx" ]]; then
 else
 	screen -ls | head -n -2 2>/dev/null
 fi
+
+DL_ZSH_RC_LOCAL="$HOME/.zshrc.local"
+[ -f "$DL_ZSH_RC_LOCAL" ] && source "$DL_ZSH_RC_LOCAL"
 

@@ -5,5 +5,5 @@ My Dotfiles
 
 ```
 git clone https://github.com/lukaspustina/dotfiles.git "$HOME/.dotfiles"
-(cd $HOME/.dotfiles; make)
+(cd $HOME/.dotfiles; ./install.sh)
 ```
