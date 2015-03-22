@@ -47,6 +47,10 @@ nnoremap <leader><space> :noh<cr>
 nnoremap <tab> %
 vnoremap <tab> %
 
+" remap / for easymotion search
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+
 nnoremap <leader>U :GundoToggle<CR>
 
 " change Vim's interpretation of regex to 'common' mode
