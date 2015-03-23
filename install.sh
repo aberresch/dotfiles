@@ -26,7 +26,7 @@ for d in $MKDIRS; do
 done
 
 for d in $DIRS; do
-  ln -v -sf ${CWD}/${d} .${d}
+  ln -v -sfh ${CWD}/${d} .${d}
 done
 
 for i in $GITREPOS; do IFS=","; set $i
