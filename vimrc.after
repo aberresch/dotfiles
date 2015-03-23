@@ -1,7 +1,7 @@
 " .vimrc
 syntax enable
 set background=dark
-colorscheme solarized
+
 
 set nocompatible
 set encoding=utf-8
@@ -75,4 +75,8 @@ vmap  <expr>  L          DVB_Drag('right')
 vmap  <expr>  J          DVB_Drag('down')
 vmap  <expr>  K          DVB_Drag('up')
 vmap  <expr>  D          DVB_Duplicate()
+
+if filereadable(glob("~/.vimrc.after.local"))
+  source ~/.vimrc.after.local
+endif
 
