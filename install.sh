@@ -15,8 +15,10 @@ GITREPOS="\
 "
 
 CWD=$(pwd)
+uname | grep Darwin &> /dev/null && isDarwin=true
 
 cd ${HOME}
+
 for f in $FILES; do
     ln -v -sf ${CWD}/${f} .${f}
 done
@@ -26,7 +28,11 @@ for d in $MKDIRS; do
 done
 
 for d in $DIRS; do
-  ln -v -sfh ${CWD}/${d} .${d}
+  if [ -z $isDarwin ]; then
+    ln -v -sfn ${CWD}/${d} .${d}
+  else
+    ln -v -sfh ${CWD}/${d} .${d}
+  fi
 done
 
 for i in $GITREPOS; do IFS=","; set $i
