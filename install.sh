@@ -46,3 +46,6 @@ for i in $GITREPOS; do IFS=","; set $i
   fi
 done
 
+# Get iTerm2 shell integration
+curl -L https://iterm2.com/misc/zsh_startup.in >> ~/.iterm2_shell_integration.zsh
+

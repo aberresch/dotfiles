@@ -80,3 +80,6 @@ fi
 DL_ZSH_RC_LOCAL="$HOME/.zshrc.local"
 [ -f "$DL_ZSH_RC_LOCAL" ] && source "$DL_ZSH_RC_LOCAL"
 
+DL_ITERM2_INTEGRATION="$HOME/.iterm2_shell_integration.zsh"
+[ -f "$DL_ITERM2_INTEGRATION" ] && source "$DL_ITERM2_INTEGRATION"
+
