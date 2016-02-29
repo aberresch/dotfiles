@@ -32,7 +32,7 @@ set guifont=Meslo\ LG\ L\ DZ:h12
 
 set tw=0
 set tabstop=2 softtabstop=2 shiftwidth=2
-set listchars=tab:>-,trail:.,nbsp:~
+" set listchars=tab:>-,trail:.,nbsp:~
 set wrap linebreak list
 
 autocmd Filetype markdown setlocal wrap linebreak nolist

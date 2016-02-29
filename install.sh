@@ -12,6 +12,8 @@ GITREPOS="\
   https://github.com/tpope/vim-surround.git,${HOME}/.janus/vim-surround.git \
   https://github.com/tpope/vim-repeat.git,${HOME}/.janus/vim-repeat.git \
   https://github.com/sjl/gundo.vim.git,${HOME}/.janus/gundo \
+  https://github.com/editorconfig/editorconfig-vim.git,${HOME}/.janus/editorconfig-vim \
+  https://github.com/Chiel92/vim-autoformat.git,${HOME}/.janus/vim-autoformat \
 "
 
 CWD=$(pwd)
