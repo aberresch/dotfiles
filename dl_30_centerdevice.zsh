@@ -1,4 +1,4 @@
-if [[ "x${DL_ENV}x" == "vCD" ]]; then
+if [[ "${DL_ENV}" == "vCD" ]]; then
 
   function cd_userInfo() {
           [[ -x /usr/bin/mongo ]] || return 2;
@@ -24,11 +24,10 @@ if [[ "x${DL_ENV}x" == "vCD" ]]; then
                   return 1
           fi
           echo "db.user.findOne({ \$or:[ {\"id\":\"$userId\"}, {\"upload_settings.email_upload_alias\":\"$userId\"}]}, $projection )" | mongo --quiet centerdevice-security
-
   }
 
   function cd_docInfo() {
-    [[ -x mongo ]] || return 1;
+    [[ -x /usr/bin/mongo ]] || return 2;
           local projection="{ _id: 0,
                               filename: 1,
                               mimetype: 1,
@@ -47,7 +46,7 @@ if [[ "x${DL_ENV}x" == "vCD" ]]; then
                   echo "Usage: docInfo [-v] <documentId>"
                   return 1
           fi
-          echo "db.metadata.findOne({\"id\":\"$docId\"}, $projection )" | mongo --quiet centerdevice-metadata
+          echo "db.metadata.findOne({\"id\":\"$docId\"}, $projection )" | mongo --quiet --host node01 centerdevice-metadata
   }
 
 fi
