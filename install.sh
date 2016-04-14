@@ -1,5 +1,6 @@
 #!/bin/bash
-FILES="aliases ansible.cfg dl_*.zsh screenrc vimrc.before vimrc.after zshrc"
+FILES="aliases ansible.cfg screenrc vimrc.before vimrc.after zshrc"
+DL_FILES="$(ls -1 dl_*.zsh)"
 MKDIRS="${HOME}/.janus"
 DIRS="janus/ftdetect janus/lukas"
 GITREPOS="\
@@ -21,9 +22,10 @@ uname | grep Darwin &> /dev/null && isDarwin=true
 
 cd ${HOME}
 
-# remove link to renamed file to prevent duplicate
-rm .dl_centerdevice.zsh
-for f in $FILES; do
+# remove old link to renamed file to prevent duplicate
+rm -f .dl_centerdevice.zsh
+
+for f in $FILES $DL_FILES; do
     ln -v -sf ${CWD}/${f} .${f}
 done
 
