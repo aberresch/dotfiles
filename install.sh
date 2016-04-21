@@ -2,7 +2,7 @@
 FILES="aliases ansible.cfg screenrc vimrc.before vimrc.after zshrc"
 DL_FILES="$(ls -1 dl_*.zsh)"
 MKDIRS="${HOME}/.janus"
-DIRS="janus/ftdetect janus/lukas"
+DIRS="janus/ftdetect janus/lukas janus/daniel"
 GITREPOS="\
   https://github.com/lukaspustina/oh-my-zsh.git,${HOME}/.oh-my-zsh \
   https://github.com/carlhuda/janus.git,${HOME}/.vim,rake \
