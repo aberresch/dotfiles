@@ -7,7 +7,7 @@ function usereport () {
   mv ${tempfile} ${tempfile}.md
   echo ${tempfile}.md
   which open > /dev/null 2>&1
-  if [[ $?==0 ]]; then
+  if [[ $? == 0 ]]; then
     open ${tempfile}.md
   fi
 }
