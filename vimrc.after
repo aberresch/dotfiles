@@ -76,7 +76,26 @@ vmap  <expr>  J          DVB_Drag('down')
 vmap  <expr>  K          DVB_Drag('up')
 vmap  <expr>  D          DVB_Duplicate()
 
+" Tagbar
+nmap <leader>T :TagbarToggle<CR>
+
+" tagbar for Rust
+let g:tagbar_type_rust = {
+   \ 'ctagstype' : 'rust',
+   \ 'kinds' : [
+       \'T:types,type definitions',
+       \'f:functions,function definitions',
+       \'g:enum,enumeration names',
+       \'s:structure names',
+       \'m:modules,module names',
+       \'c:consts,static constants',
+       \'t:traits,traits',
+       \'i:impls,trait implementations',
+   \]
+   \}
+
 if filereadable(glob("~/.vimrc.after.local"))
   source ~/.vimrc.after.local
 endif
+
 

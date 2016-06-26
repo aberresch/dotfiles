@@ -1,5 +1,5 @@
 #!/bin/bash
-FILES="aliases ansible.cfg screenrc vimrc.before vimrc.after zshrc"
+FILES="aliases ansible.cfg ctags screenrc vimrc.before vimrc.after zshrc"
 DL_FILES="$(ls -1 dl_*.zsh)"
 MKDIRS="${HOME}/.janus"
 DIRS="janus/ftdetect janus/lukas janus/daniel"
@@ -15,6 +15,7 @@ GITREPOS="\
   https://github.com/sjl/gundo.vim.git,${HOME}/.janus/gundo \
   https://github.com/editorconfig/editorconfig-vim.git,${HOME}/.janus/editorconfig-vim \
   https://github.com/Chiel92/vim-autoformat.git,${HOME}/.janus/vim-autoformat \
+  https://github.com/majutsushi/tagbar.git,${HOME}/.janus/tagbar \
 "
 
 CWD=$(pwd)
