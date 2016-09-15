@@ -23,7 +23,7 @@ if [[ "${DL_ENV}" == "vCD" ]]; then
                   echo "Usage: userInfo [-v] <userId|uploadId>"
                   return 1
           fi
-          echo "db.user.findOne({ \$or:[ {\"id\":\"$userId\"}, {\"upload_settings.email_upload_alias\":\"$userId\"}]}, $projection )" | mongo --quiet --host node01 centerdevice-security
+          echo "db.user.findOne({ \$or:[ {\"id\":\"$userId\"}, {\"upload_settings.email_upload_alias\":\"$userId\"}]}, $projection )" | mongo --quiet centerdevice-security
   }
 
   function cd_docInfo() {
@@ -46,7 +46,7 @@ if [[ "${DL_ENV}" == "vCD" ]]; then
                   echo "Usage: docInfo [-v] <documentId>"
                   return 1
           fi
-          echo "db.metadata.findOne({\"id\":\"$docId\"}, $projection )" | mongo --quiet --host node01 centerdevice-metadata
+          echo "db.metadata.findOne({\"id\":\"$docId\"}, $projection )" | mongo --quiet centerdevice-metadata
   }
 
 fi
