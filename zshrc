@@ -16,6 +16,7 @@ for f in $HOME/.dl_*.zsh; do
 done
 
 plugins=(compleat vi-mode screen)
+fpath=(/usr/local/share/zsh-completions $fpath)
 
 source $ZSH/oh-my-zsh.sh
 
