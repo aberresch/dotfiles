@@ -55,3 +55,6 @@ DL_ZSH_RC_LOCAL="$HOME/.zshrc.local"
 DL_ITERM2_INTEGRATION="$HOME/.iterm2_shell_integration.zsh"
 [[ -f "$DL_ITERM2_INTEGRATION" && $TERM_PROGRAM =~ iTerm ]] && source "$DL_ITERM2_INTEGRATION"
 
+
+# added by travis gem
+[ -f /Users/lukas/.travis/travis.sh ] && source /Users/lukas/.travis/travis.sh
