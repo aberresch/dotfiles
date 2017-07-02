@@ -25,6 +25,6 @@ alias ls='ls -G'
 
 uname | grep Darwin &> /dev/null
 if (( $? == 0 )); then
-  alias mvim='COLORFGBG= mvim'
+  alias mvim='COLORFGBG= mvim 2> /dev/null'
 fi
 
