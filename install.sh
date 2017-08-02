@@ -16,7 +16,8 @@ GITREPOS="\
   https://github.com/editorconfig/editorconfig-vim.git,${HOME}/.janus/editorconfig-vim \
   https://github.com/Chiel92/vim-autoformat.git,${HOME}/.janus/vim-autoformat \
   https://github.com/hashivim/vim-hashicorp-tools.git,${HOME}/.janus/vim-m-hashicorp-tools \
-  https://github.com/cespare/vim-toml.git,${HOME}/.janus/vim-toml
+  https://github.com/cespare/vim-toml.git,${HOME}/.janus/vim-toml \
+  https://github.com/bling/vim-airline.git,${HOME}/.janus/vim-airline
 "
 
 CWD=$(pwd)
